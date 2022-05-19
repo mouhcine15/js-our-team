@@ -1,49 +1,82 @@
-
-let card = document.getElementsByClassName("team-card");
-
-
+// creo array di oggetti
 const oggetti = 
 [
     {
         "nome" : "Wayne Barnett",
         "ruolo" : "Founder & CEO",
-        "img.src" : "img/wayne-barnett-founder-ceo.jpg"
+        "foto" : "img/wayne-barnett-founder-ceo.jpg"
     },
 
     {
         "nome" : "Angela Caroll",
         "ruolo" : "Chief editor",
-        "img.src" :  "img/angela-caroll-chief-editor.jpg"
+        "foto" :  "img/angela-caroll-chief-editor.jpg"
     },
 
     {
         "nome" : "Walter Gordon",
         "ruolo" : "Office Manager",
-        "img.src" :  "img/walter-gordon-office-manager.jpg"
+        "foto" :  "img/walter-gordon-office-manager.jpg"
     },
 
     {
         "nome" : "Angela Lopez",
         "ruolo" : "Social Media Manager",
-        "img.src" :  "img/angela-lopez-social-media-manager.jpg"
+        "foto" :  "img/angela-lopez-social-media-manager.jpg"
     },
 
     {
         "nome" : "Scott Estrada",
         "ruolo" : "Developer",
-        "img.src" :  "img/scott-estrada-developer.jpg"
+        "foto" :  "img/scott-estrada-developer.jpg"
     },
 
     {
         "nome" : "Barbara Ramos",
         "ruolo" : "Graphic Designer",
-        "img.src" :  "img/barbara-ramos-graphic-designer.jpg"
+        "foto" :  "img/barbara-ramos-graphic-designer.jpg"
     }
 
 ];
+// variabile del contenitore
+ let container = document.querySelector(".team-container");
+ 
+//  ciclo per stampare le card 
+ for (let i = 0; i < oggetti.length; i ++) {
+    let elementi = oggetti[i];
+
+    // creo gli elementi html 
+    const card = document.createElement("div");
+    card.classList.add("team-card");
+    
+    const immagine = document.createElement("div");
+    immagine.classList.add("card-image");
+    
+    const profilo = document.createElement("img");
+    profilo.src = elementi.foto;
+    
+    const text = document.createElement("div");
+    text.classList.add("card-text");
+    
+    const nome = document.createElement("h3");
+    
+    const ruolo = document.createElement("p");
+   
+    // append
+    text.append(nome);
+    text.append(ruolo);
+
+    immagine.append(profilo);
+
+    card.append(immagine);
+    card.append(text);
+    
+
+    container.append(card);
 
 
- console.log(oggetti);
+    nome.innerText = elementi.nome; 
+    ruolo.innerText = elementi.ruolo;
 
-// document.getElementsByClassName("team-card").innerHTML = azienda;
-// card.innerHTML = azienda;
+    console.log(card);
+ }
